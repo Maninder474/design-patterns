@@ -1,0 +1,17 @@
+package com.opentext.patterns.factory.pizza.pizzaFactory;
+
+import com.opentext.patterns.factory.pizza.Pizza;
+
+public abstract class PizzaStore {
+
+    public Pizza orderPizza(String type) {
+        Pizza pizza = createPizza(type);
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+        return pizza;
+    }
+
+    public abstract Pizza createPizza(String type);
+}
